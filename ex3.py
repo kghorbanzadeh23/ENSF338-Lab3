@@ -36,7 +36,7 @@ def quad(x, a, b):
     return a*np.power(x,2) + b
 constants = curve_fit(quad, vector_sizes, swapList)
 plt.scatter(vector_sizes, swapList)
-linevalues = [constants[0][0] * x + constants[0][1] for x in vector_sizes]
+linevalues = [constants[0][0] * np.power(x,2) + constants[0][1] for x in vector_sizes]
 plt.plot(vector_sizes, linevalues, 'r')
 
 # Save the plot to a file named output.3.2.png
@@ -48,7 +48,7 @@ plt.savefig('output.3.4.1.png')
 plt.clf()
 constants = curve_fit(quad, vector_sizes, comparisonsList)
 plt.scatter(vector_sizes, comparisonsList)
-linevalues = [constants[0][0] * x + constants[0][1] for x in vector_sizes]
+linevalues = [constants[0][0] * np.power(x,2) + constants[0][1] for x in vector_sizes]
 plt.plot(vector_sizes, linevalues, 'r')
 
 # Save the plot to a file named output.3.2.png
