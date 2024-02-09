@@ -1,5 +1,4 @@
-import sys 
-
+import sys
 sys.setrecursionlimit(20000)
 
 def merge(arr, low, mid, high):
