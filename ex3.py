@@ -25,7 +25,7 @@ vector_sizes = [1000, 2000, 4000, 8000, 16000, 32000]
 swapList = []
 comparisonsList = []
 for size in vector_sizes:
-    arr = [random.randint(1, size*10) for _ in range(size)]  # Create a sorted vector
+    arr = [random.randint(1, size*10) for _ in range(size)]  # Create a random vector
     swap, comparison = bubble_sort(arr)
 
     swapList.append(swap)
@@ -53,6 +53,6 @@ plt.plot(vector_sizes, linevalues, 'r')
 
 # Save the plot to a file named output.3.2.png
 plt.xlabel('Number of Records')
-plt.ylabel('Number of Swaps')
+plt.ylabel('Number of Comparisons')
 plt.title('Size of Array Compared to Comparisons')
 plt.savefig('output.3.4.2.png')
