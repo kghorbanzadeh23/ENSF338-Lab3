@@ -67,18 +67,16 @@ regularTimes = []
 sizes = []
 
 for size in vector_sizes:
-    for i in range(0,5):
-        arr = [random.randint(1, size*10) for _ in range(size)]  # Create a random vector
+    arr = [random.randint(1, size*10) for _ in range(size)]  # Create a random vector
 
-        binaryTimes.append(timeit.timeit(lambda: insertionSortBinary(arr.copy(), size), number=1))
-        regularTimes.append(timeit.timeit(lambda: insertionSort(arr.copy(), size), number=1))
-        sizes.append(size)
+    binaryTimes.append(timeit.timeit(lambda: insertionSortBinary(arr.copy(), size), number=10)/10)
+    regularTimes.append(timeit.timeit(lambda: insertionSort(arr.copy(), size), number=10)/10)
 
 
 #Produce a linear regression plot
 def linear(x, a, b):
     return a*x + b
-constants = curve_fit(linear, sizes, binaryTimes)
+constants = curve_fit(linear, vector_sizes, binaryTimes)
 linevalues = [constants[0][0] * x + constants[0][1] for x in vector_sizes]
 plt.plot(vector_sizes, linevalues, 'r', label="Binary Insertion Sort")
 
@@ -89,7 +87,7 @@ plt.title('Binary Insertion Sort')
 
 def quad(x, a, b):
     return a*np.power(x,2) + b
-constants = curve_fit(quad, sizes, regularTimes)
+constants = curve_fit(quad, vector_sizes, regularTimes)
 linevalues = [constants[0][0] * np.power(x,2) + constants[0][1] for x in vector_sizes]
 plt.plot(vector_sizes, linevalues, 'b', label="Regular Insertion Sort")
 
