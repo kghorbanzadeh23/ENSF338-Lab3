@@ -61,7 +61,7 @@ def insertionSort(arr, n):
         arr[j+1]= key
     return arr
 
-vector_sizes = [1000, 2000, 4000, 8000, 16000, 32000]
+vector_sizes = [1000, 2000, 3000, 4000, 6000, 8000, 16000]
 binaryTimes = []
 regularTimes = []
 sizes = []
@@ -80,7 +80,7 @@ def linear(x, a, b):
     return a*x + b
 constants = curve_fit(linear, sizes, binaryTimes)
 linevalues = [constants[0][0] * x + constants[0][1] for x in vector_sizes]
-plt.plot(vector_sizes, linevalues, 'r')
+plt.plot(vector_sizes, linevalues, 'r', label="Binary Insertion Sort")
 
 # Save the plot to a file named output.5.3.1.png
 plt.xlabel('Number of Records')
@@ -91,12 +91,13 @@ def quad(x, a, b):
     return a*np.power(x,2) + b
 constants = curve_fit(quad, sizes, regularTimes)
 linevalues = [constants[0][0] * np.power(x,2) + constants[0][1] for x in vector_sizes]
-plt.plot(vector_sizes, linevalues, 'r')
+plt.plot(vector_sizes, linevalues, 'b', label="Regular Insertion Sort")
 
 # Save the plot to a file named output.5.3.2.png
 plt.xlabel('Number of Records')
 plt.ylabel('Time')
-plt.title('Regular Insertion Sort')
+plt.title('Regular Insertion Sort vs Binary Insertion Sort')
+plt.legend()
 plt.savefig('output.5.3.png')
 
 

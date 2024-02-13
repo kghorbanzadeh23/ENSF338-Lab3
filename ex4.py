@@ -20,5 +20,6 @@ def partition(arr, low, high):
         if right < left:
             done = True
         else:
-            arr[left], arr[right] = arr[right], arr[left], arr[low], arr[right] = arr[right], arr[low]
-        return right
+            arr[left], arr[right] = arr[right], arr[left], 
+    arr[low], arr[right] = arr[right], arr[low]
+    return right
