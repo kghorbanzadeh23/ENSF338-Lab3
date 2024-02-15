@@ -48,6 +48,9 @@ if __name__ == "__main__":
         quicksort(arr, 0, len(arr) - 1)  # Perform quicksort
         end_time = time.time()  # End time
         timings.append(end_time - start_time)
+    
+    for i in range(len(sizes)):
+        print(f"Array size: {sizes[i]}, Time taken: {timings[i]} seconds")
 """"
     # Plotting
     plt.figure(figsize=(10, 6))
