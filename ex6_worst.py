@@ -23,11 +23,12 @@ def partition(array, low, high):
   
  
 def quicksort(array, low, high):
-    if low < high:
+  if low < high:
+    pi = partition(array, low, high)
 
-        pi = partition(array, low, high)
-        quicksort(array, low, pi - 1)
-        quicksort(array, pi + 1, high)
+    quicksort(array, low, pi - 1)
+
+    quicksort(array, pi + 1, high)
 
 def linear_search(arr, target):
     for i in range(len(arr)):
@@ -56,6 +57,23 @@ def binary_search(arr, target):
 
 if(__name__ == "__main__"):
     #5
+
+    arr = [k for k in range(1000, 0 ,-1)]
+    target = random.randint(0,999)
+    linearTimes = []
+    binaryTimes = []
+    for i in range(0,100):
+
+        tm = timeit.timeit("linear_search(arr, target)", setup="from __main__ import linear_search, arr, target", number=1)            
+        linearTimes.append(tm)
+
+        tm = timeit.timeit("binary_search_and_quicksort(arr.copy(), target)", setup="from __main__ import binary_search_and_quicksort, arr, target", number=1)                        
+        binaryTimes.append(tm)
+
+    print("Average time for binary serach time is", sum(binaryTimes)/ len(binaryTimes))
+    print("Average time for Linear serach time is", sum(linearTimes)/ len(linearTimes), "\n")
+
+
     vectorSizes = [10,20,50,100,200,500,1000]
     binaryTimes = []
     linearTimes = []
