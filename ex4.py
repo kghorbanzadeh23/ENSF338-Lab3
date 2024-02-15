@@ -40,7 +40,7 @@ if __name__ == "__main__":
     quicksort(arr, 0, len(arr) - 1)
     print("Sorted array:", arr)
 
-    sizes = [100, 500, 1000, 2000]  # Sizes of arrays to test
+    sizes = [50,100, 250, 500, 750, 1000,1250, 1500, 1750, 2000]  # Sizes of arrays to test
     timings = []
     for size in sizes:
         arr = list(range(size, 0, -1))  # Create an array in descending order
