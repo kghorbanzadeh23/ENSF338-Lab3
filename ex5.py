@@ -64,7 +64,6 @@ def insertionSort(arr, n):
 vector_sizes = [1000, 2000, 3000, 4000, 6000, 8000, 16000]
 binaryTimes = []
 regularTimes = []
-sizes = []
 
 for size in vector_sizes:
     arr = [random.randint(1, size*10) for _ in range(size)]  # Create a random vector
