@@ -115,3 +115,5 @@ if(__name__ == "__main__"):
     plt.title('Comparison Between Linear and Binary Search (Worst Case QuickSort)')
     plt.legend()
     plt.savefig('output.6.5.png')
+    
+    #Once again it looks like binary_search and quicksort combined is slower than linear search.

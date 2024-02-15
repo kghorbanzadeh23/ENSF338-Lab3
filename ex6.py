@@ -3,35 +3,31 @@ import random
 from matplotlib import pyplot as plt
 import numpy as np
 from scipy.optimize import curve_fit
-import sys
-sys.setrecursionlimit(200000000)
+import time
 
-def partition(array, low, high):
-    pivot = array[high]
- 
-    i = low - 1
- 
-    for j in range(low, high):
-        if array[j] <= pivot:
-            i = i + 1
- 
-            (array[i], array[j]) = (array[j], array[i])
- 
-    (array[i + 1], array[high]) = (array[high], array[i + 1])
- 
-    return i + 1
-  
- 
-def quicksort(array, low, high):
-    while(low<high):
-        pi = partition(array,low,high)
-        if (pi-low <= high-(pi+1)):
-            quicksort(array,low,high)
-            low = pi + 1
+
+def quicksort(arr, low, high):
+    if low < high:
+        pivot_index = partition(arr, low, high)
+        quicksort(arr, low, pivot_index)
+        quicksort(arr, pivot_index + 1, high)
+
+def partition(arr, low, high):
+    pivot = arr[low]
+    left = low + 1
+    right = high
+    done = False
+    while not done:
+        while left <= right and arr[left] <= pivot:
+            left = left + 1
+        while arr[right] >= pivot and right >= left:
+            right = right - 1
+        if right < left:
+            done = True
         else:
-            quicksort(array,pi+1,high)
-            high=pi
-    
+            arr[left], arr[right] = arr[right], arr[left], 
+    arr[low], arr[right] = arr[right], arr[low]
+    return right
 
 def linear_search(arr, target):
     for i in range(len(arr)):
@@ -64,7 +60,7 @@ if __name__ == "__main__":
     target = random.randint(0,999)
     linearTimes = []
     binaryTimes = []
-    for i in range(0,100):
+    for i in range(0,20):
         random.shuffle(arr)
         tm = timeit.timeit("linear_search(arr, target)", setup="from __main__ import linear_search, arr, target", number=1)            
         linearTimes.append(tm)
