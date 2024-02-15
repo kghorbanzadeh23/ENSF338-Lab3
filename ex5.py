@@ -61,7 +61,7 @@ def insertionSort(arr, n):
         arr[j+1]= key
     return arr
 
-vector_sizes = [1000, 2000, 3000, 4000, 6000, 8000, 16000]
+vector_sizes = [1000, 2000, 3000, 4000, 6000, 8000]
 binaryTimes = []
 regularTimes = []
 
