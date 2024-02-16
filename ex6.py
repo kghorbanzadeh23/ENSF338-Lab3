@@ -104,7 +104,7 @@ if __name__ == "__main__":
     plt.scatter(vectorSizes,linearTimes, c='r')
     plt.plot(vectorSizes, linevalues, 'r', label="Linear Search")
 
-    # Save the plot to a file named output.5.3.2.png
+    # Save the plot to a file named output.6.4.png
     plt.xlabel('Number of Records')
     plt.ylabel('Time')
     plt.title('Comparison Between Linear and Binary Search')
