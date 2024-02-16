@@ -31,7 +31,7 @@ targets = []
 with open("ex7tasks.json", "r", encoding="utf-8") as file:
     targets = json.load(file)
 
-#2 Find best midpoint
+#2 Find best midpoint for each task
 best_midpoints = []
 length = len(data) - 1
 for i in targets:
